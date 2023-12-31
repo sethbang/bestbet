@@ -14,11 +14,15 @@
 
 import streamlit as st
 from streamlit.logger import get_logger
+from st_paywall import add_auth
 
 LOGGER = get_logger(__name__)
 
 
 def run():
+    add_auth(required=True)
+    st.write(st.session_state.email)
+    st.write(st.session_state.user_subscribed)
     st.set_page_config(
         page_title="Hello",
         page_icon="👋",
